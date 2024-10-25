@@ -1,0 +1,114 @@
+.no-clients-found {
+    margin: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6564af;
+}
+
+.clients {
+    h2 {
+        color: #6564af;
+        font-size: 22px;
+        text-transform: uppercase;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+    }
+}
+
+.client-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 4.5rem 1rem 0;
+}
+
+.clients-media-list {
+    padding: 0;
+    li.client-card-container {
+        list-style: none;
+        border: solid 1px #8e8dc923;
+        box-shadow: 0 0px 8px 1px rgba(#464646, 0.1);
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 5px;
+        border-top-right-radius: 5px;
+        margin: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+        position: relative;
+        .client-data {
+            position: relative;
+            cursor: default;
+            width: 100%;
+            font-size: 11px;
+            font-weight: 500;
+
+            .client-name {
+                margin: 5px 4px -4px;
+                margin-left: .9rem;
+                font-weight: bold;
+                font-size: 12px;
+                text-transform: uppercase;
+                // max-width: max-content;
+                color: #6564af;
+            }
+            .card-data {
+                margin: 4px 10px 8px 1rem;
+                margin-top: 0.40rem;
+                gap: 1rem;
+                color: #3a3a3a;
+                line-height: 16px;
+                .col {
+                    padding: 0;            
+                }
+                @media (max-width: 600px) {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-gap: 0rem !important;
+                }
+                @media (max-width: 400px) {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                }   
+            }
+            .client-actions {
+                text-align: end;
+                margin-right: 1rem;
+                .btn {
+                    padding: 0.25rem 0.50rem;
+                    border: none;
+                    svg {
+                        margin-top: -4px;
+                    }
+                }
+                .edit-client-btn {
+                    background-color: #8382c2;
+                }
+                .delete-client-btn {
+                    margin-left: 0.5rem;
+                    background-color: #d65f5f;
+                }                    
+            }
+        }      
+    }
+}
+
+.client-form {
+    .inline-form-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        .form-group {
+            width: 100%;
+        }
+    }
+    .form-group {
+        margin-bottom: 0.4rem !important;
+    }
+    label {
+        margin-bottom: 2px;
+    }
+}

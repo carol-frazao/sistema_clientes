@@ -1,0 +1,25 @@
+.not-found-page {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        margin: 4rem 2rem 2rem;
+        overflow: hidden;
+        button {
+            background-color: #966fd4;
+        }
+        img {
+            max-width: 400px;
+            width: 100%;
+            object-fit: contain;  
+        }
+    }
+}

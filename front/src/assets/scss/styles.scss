@@ -1,0 +1,60 @@
+@use './auth/auth';
+@use './client/client';
+@use './misc/notFoundPage';
+@use './auth/resetPasswordPage';
+@use './header/header';
+
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.App {
+    width: 100vw !important;
+    height: 100vh !important;
+}
+body {
+    background-color: #d4d3e215 !important;
+}
+small {
+    color: red;
+}
+.primary {
+    background-color: #8685d4 !important;
+    border: none !important;
+    &:hover {
+        background-color: #7c7bc5  !important;
+    }
+}
+.flat-danger {
+    background-color: transparent !important;
+    color: #da4c4c !important;
+    border: none !important;
+    &:hover {
+        background-color: #da4c4c1c !important;
+    }
+}
+.flat-primary {
+    background-color: transparent !important;
+    color: #7c7bc5 !important;
+    border: none !important;
+    &:hover {
+        background-color: #7c7bc533 !important;
+    }
+}
+.w-100 {
+    width: 100%;
+}
+.w-50 {
+    width: 50%;
+}
+.h-100 {
+    height: 100%;
+}
+.h-50 {
+    height: 50%;
+}
+.page {
+    margin-top: 4.3rem;
+}
