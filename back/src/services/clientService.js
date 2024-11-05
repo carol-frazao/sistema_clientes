@@ -4,7 +4,9 @@ import Client from '../models/Client.js';
 class ClientService {
   async getClients() {
     try {
-      const clients = await Client.findAll();
+      const clients = await Client.findAll({
+        order: [['name', 'ASC']],
+      });
       return { success: true, data: clients };
     } catch (error) {
       console.error('Erro ao buscar clientes:', error);
@@ -17,8 +19,7 @@ class ClientService {
       // Verifica se todos os dados obrigatórios estão presentes
       const requiredFields = [
         'name', 'documentNumber', 'email', 'phone', 'personType', 
-        'addressZipCode', 'addressStreet', 'addressNumber', 
-        'addressDistrict', 'addressCity', 'addressState'
+        'addressZipCode', 'addressStreet', 'addressDistrict', 'addressCity', 'addressState'
       ];
 
       for (const field of requiredFields) {

@@ -1,19 +1,15 @@
 
 // ** Third Part Components
-import { Media, Col, Row, Button, Modal } from 'reactstrap'
+import { Media, Col, Row, Button } from 'reactstrap'
 import { cepMask, documentMask, phoneMask } from '../../utils/masks'
 import { Edit2, Trash2 } from 'react-feather'
 import { useState } from 'react'
 import ModalEditClient from './ModalEditClient'
-import { useDispatch } from 'react-redux'
-import { deleteClient } from '../../redux/actions/client'
 import ModalDeleteClient from './ModalDeleteClient'
 
 const ClientCard = props => {
     // ** Props
-    const {
-        client
-    } = props
+    const { client } = props
 
     // ** State
     const [modalEditClient, setModalEditClient] = useState(false)
@@ -68,8 +64,8 @@ const ClientCard = props => {
                         <div className='data'> 
                             <strong>Endereço:</strong>{" "}
                             <span> 
-                                {client?.addressStreet && client?.addressNumber ? (
-                                    `${client.addressStreet}, ${client?.addressNumber}${client?.addressComplement ? `, ${client.addressComplement}` : ''}` 
+                                {client?.addressStreet ? (
+                                    `${client.addressStreet}${client?.addressNumber ? `, ${client.addressNumber}` : ''}${client?.addressComplement ? `, ${client.addressComplement}` : ''}` 
                                 ) : 'N/D'}
                             </span>
                         </div>

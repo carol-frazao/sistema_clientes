@@ -56,6 +56,7 @@ class Client extends Model {
         addressNumber: {
             type: DataTypes.STRING,
             allowNull: false,
+            defaultValue: 'S/N',
         },
         addressComplement: {
             type: DataTypes.STRING,

@@ -1,8 +1,7 @@
 export function validateCEP(cep) {
     if (cep) {
-        const cleanedCEP = cep.replace(/\D/g, '');
         const cepRegex = /^\d{5}-?\d{3}$/;
-        return cepRegex.test(cleanedCEP);
+        return cepRegex.test(cep);
     }
 }
 

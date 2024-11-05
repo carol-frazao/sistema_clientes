@@ -45,7 +45,7 @@ const ClientForm = (props) => {
         }
         if (field === "phone") {
             newValue = value.replace(/\D/gim, '')
-            if (newValue?.length === 11) {
+            if (newValue?.length >= 10) {
                 newValue = phoneMask(newValue)
             }
         }
@@ -96,7 +96,7 @@ const ClientForm = (props) => {
     };
 
     const handleChangeCep = async (cep) => {
-        handleChange("addressZipCode", cep)
+        handleChange("addressZipCode", cepMask(cep))
 
         if (cep) {
             const cleanedCep = cep.replace(/\D/g, '');
@@ -153,7 +153,7 @@ const ClientForm = (props) => {
 
         setError("")
 
-        const requiredFields = ['name', 'documentNumber', 'email', 'phone', 'personType', 'addressZipCode', 'addressStreet', 'addressNumber', 'addressDistrict', 'addressCity', 'addressState']
+        const requiredFields = ['name', 'documentNumber', 'email', 'phone', 'personType', 'addressZipCode', 'addressStreet', 'addressDistrict', 'addressCity', 'addressState']
 
         for (const field of requiredFields) {
             if (!formData[field]) {
@@ -194,7 +194,7 @@ const ClientForm = (props) => {
             phone: formData?.phone?.replace(/\D/gim, ''),
             personType: formData?.personType,
             status: formData?.status?.toLowerCase(),
-            addressZipCode: formData?.addressZipCode?.replace(/\D/gim, ''),
+            addressZipCode: formData?.addressZipCode,
             addressStreet: formData?.addressStreet,
             addressNumber: formData?.addressNumber?.replace(/\D/gim, ''),
             addressComplement: formData?.addressComplement,
@@ -339,17 +339,15 @@ const ClientForm = (props) => {
                 </FormGroup>
                 <FormGroup className="form-group">
                     <Label for="addressNumber">
-                        <small>*</small>{" "}
                         Número:
                     </Label>
                     <Input
-                        type="number"
+                        type="text"
                         id="addressNumber"
                         name="addressNumber"
                         value={formData?.addressNumber}
                         onChange={e => handleChange("addressNumber", e.target.value)}
                         placeholder="Digite"
-                        required
                     />
                 </FormGroup>
             </div>
