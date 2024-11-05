@@ -14,6 +14,12 @@
     width: 100vw !important;
     height: 100vh !important;
 }
+
+body,
+#root {
+  height: 100%;
+}
+
 body {
     background-color: #d4d3e215 !important;
 }
@@ -56,5 +62,5 @@ small {
     height: 50%;
 }
 .page {
-    margin-top: 4.3rem;
+    margin-top: 1rem;
 }
