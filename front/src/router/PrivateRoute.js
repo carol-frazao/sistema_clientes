@@ -8,7 +8,6 @@ const PrivateRoute = ({ children }) => {
   const dispatch = useDispatch();
 
   const isAuth = isAuthenticated()
-  console.log("🚀 ~ PrivateRoute ~ isAuth:", isAuth)
 
   useEffect(() => {
     if (!isAuth) {

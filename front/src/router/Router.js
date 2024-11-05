@@ -4,12 +4,16 @@ import Login from '../pages/auth/Login';
 import Client from '../pages/client/Clients';
 import PrivateRoute from './PrivateRoute';
 import NotFoundPage from '../pages/misc/NotFoundPage';
-import { isAuthenticated } from './auth';
+import { getToken, isAuthenticated } from './auth';
 import CreateAccount from '../pages/auth/CreateAccount';
 import ResetPasswordPage from '../pages/auth/ResetPassword';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Router = () => {
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  const isAlreadyAuthenticated = useSelector(state => state.auth.isAuthenticated);
 
   useEffect(() => {
     // Define o título da página com base na rota atual
@@ -30,6 +34,20 @@ const Router = () => {
         document.title = 'Sistema Clientes';
     }
   }, [location]);
+
+  // se ja estiver logado, seta na store
+  useEffect(() => {
+    const token = getToken();
+    
+    if (token && !isAlreadyAuthenticated) {
+        const userData = sessionStorage.getItem('userData') || localStorage.getItem('userData');
+        const parsedUserData = JSON.parse(userData);
+        dispatch({
+            type: 'LOGIN_SUCCESS',
+            userData: parsedUserData
+        })
+    }
+  }, [dispatch, isAlreadyAuthenticated])
 
   return (
     <Routes>

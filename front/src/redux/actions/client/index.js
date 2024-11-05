@@ -61,7 +61,7 @@ export const createClient = (data) => {
         toast.success(`Cliente adicionado com sucesso.`)
       
       } catch (error) {
-        console.log("🚀 ~ registerUser ~ error aqui:", error)
+        console.log("🚀 ~ registerUser ~ error:", error)
         const msgError = error?.response?.data?.error
         console.log("🚀 ~ createClient ~ msgError:", msgError)
         if (msgError) {

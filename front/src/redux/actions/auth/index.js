@@ -79,13 +79,10 @@ export const checkSession = (userData) => {
       } else {
         dispatch({ type: 'LOGOUT' });
         toast.error('Sessão expirada. Faça login novamente.');
-        // Redireciona pro login
-        window.location.href = '/login';
       }
     } catch (error) {
       // Erro ao validar sessão, limpa os dados de autenticação
       dispatch({ type: 'LOGOUT' });
-      window.location.href = "/login"
       toast.error('Erro na validação da sessão. Por favor, faça login novamente.');
     }
   };

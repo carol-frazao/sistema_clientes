@@ -1,5 +1,5 @@
 export const isAuthenticated = () => {
-  const userData = localStorage.getItem('userData') || sessionStorage.getItem('userData');
+  const userData = sessionStorage.getItem('userData') || localStorage.getItem('userData');
   
   if (!userData) return false;
 
@@ -13,7 +13,7 @@ export const isAuthenticated = () => {
 };
 
 export const getToken = () => {
-  const userData = localStorage.getItem("userData") || sessionStorage.getItem("userData")
+  const userData = sessionStorage.getItem("userData") || localStorage.getItem("userData")
   const token = JSON.parse(userData)?.token
 
   if (token) {
